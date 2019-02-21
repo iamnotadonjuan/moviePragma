@@ -6,15 +6,18 @@ import {
   TouchableHighlight
 } from 'react-native'
 
+import LoaderLayout from './loader-layout'
+
 const LoaderLogin = (props) => {
   return (
-    <TouchableHighlight onPress={props.pushNotification}>
-      <Text>
-        <Text>{props.load}</Text>
-      </Text>
-    </TouchableHighlight>
+
+    <LoaderLayout>
+      <TouchableHighlight onPress={props.pushNotification}>
+        <Text>
+          <Text>{props.load}</Text>
+        </Text>
+      </TouchableHighlight>
+    </LoaderLayout>
   )
 }
-
-
 export default LoaderLogin
