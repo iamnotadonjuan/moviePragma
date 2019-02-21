@@ -1,15 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import LoaderLogin from '../container/loader'
+import { initSession } from '../../../flux/actions'
 
 
 class Init extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      load: 'Loading...'
+      load: 'Loading...',
+      isloader: false
     }
   }
+
+  async componentDidMount() {
+    await this._render()
+  }
+
+  async _render() {
+    await this.props._initSession()
+    console.log('await', this.props)
+  }
+
 
   notification = () => {
     alert('notification')
@@ -23,13 +35,16 @@ class Init extends Component {
 }
 
 const mapStateToProps = state => {
-  return state.login
+  return {
+    login: state.login,
+    isloader: state.login.isloader
+  }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    _initSession(data) {
-      dispatch(initSession(data));
+    async _initSession(data) {
+      await dispatch(initSession(data));
     }
   }
 }
