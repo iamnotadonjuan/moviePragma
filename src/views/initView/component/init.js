@@ -1,31 +1,37 @@
-import React ,{ Component } from 'react'
-import {Text} from 'react-native'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loader } from '../container/loader'
+import LoaderLogin from '../container/loader'
 
 
 class Init extends Component {
-    constructor(props) {
-        super(props)
+  constructor(props) {
+    super(props)
+    this.state = {
+      load: 'Loading...'
     }
+  }
 
-    render() {
-        return (
-            loader(this.props)
-        )
-    }
+  notification = () => {
+    alert('notification')
+  }
+
+  render() {
+    return (
+      <LoaderLogin load={this.state.load} pushNotification={this.notification} />
+    )
+  }
 }
 
 const mapStateToProps = state => {
-    return state.login
+  return state.login
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    _initSession(data) {
+      dispatch(initSession(data));
+    }
   }
-   
-  const mapDispatchToProps = dispatch => {
-     return {
-         _initSession(data){
-            dispatch(initSession(data));
-         }
-     }
-  }
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(Init);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Init);

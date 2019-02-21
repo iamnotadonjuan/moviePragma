@@ -1,17 +1,20 @@
 import React from 'react'
 import {
-    View,
-    Text,
-    StyleSheet
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight
 } from 'react-native'
 
-
- export function loader(props){
-    return(
-        <View>
-            <Text>
-                loading....
-            </Text>
-        </View>
-    )
+const LoaderLogin = (props) => {
+  return (
+    <TouchableHighlight onPress={props.pushNotification}>
+      <Text>
+        <Text>{props.load}</Text>
+      </Text>
+    </TouchableHighlight>
+  )
 }
+
+
+export default LoaderLogin
