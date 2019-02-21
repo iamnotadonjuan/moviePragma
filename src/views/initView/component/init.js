@@ -19,7 +19,6 @@ class Init extends Component {
 
   async _render() {
     await this.props._initSession()
-    console.log('await', this.props)
   }
 
 
