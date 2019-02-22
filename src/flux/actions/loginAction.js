@@ -19,11 +19,16 @@ const _login = (data) => {
 }
 
 const initSession = data => {
-  return {
-    type: INIT_SESSION,
-    data
-  }
+    return dispatch => {
+      dispatch(_initSession(data))
+    }
 }
 
+const _initSession = (data) => {
+  return {
+    type:INIT_SESSION,
+    payload: { data }
+  }
+}
 
 export { login, initSession }

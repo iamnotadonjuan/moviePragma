@@ -1,4 +1,5 @@
 
+import React from 'react'
 import {
     View,
     Text,
@@ -6,12 +7,11 @@ import {
 } from 'react-native'
 
 
- export function header(props){
-    return(
-        <View>
+const LoginHeader = (props) => {
+    return (
             <Text>
-                aqui va la cabecera
+                <Text>aqui va el login cabecera</Text>
             </Text>
-        </View>
     )
 }
+export default LoginHeader

@@ -1,6 +1,10 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { header } from '../container/loginHeader'
+import {
+    Text
+} from 'react-native'
+import LoginHeader from '../container/loginHeader'
+// import { header } from '../container/loginHeader'
 
 
 class Login extends Component {
@@ -10,7 +14,7 @@ class Login extends Component {
 
     render() {
         return (
-            header(props)
+           <LoginHeader/>
         )
     }
 }

@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import LoaderLogin from '../container/loader'
 import { initSession } from '../../../flux/actions'
+import {
+  AsyncStorage
+} from 'react-native'
+const global = 123
 
 
 class Init extends Component {
@@ -18,7 +22,10 @@ class Init extends Component {
   }
 
   async _render() {
-    await this.props._initSession()
+    const { navigate } = this.props.navigation
+    const idUser = await AsyncStorage.getItem('id')
+    await this.props._initSession({ idUser })
+    navigate ('Index')
   }
 
 
@@ -36,16 +43,18 @@ class Init extends Component {
 const mapStateToProps = state => {
   return {
     login: state.login,
-    isloader: state.login.isloader
+    isloader: state.login.isloader,
+    idUser: state.login.idUser
   }
 }
 
 const mapDispatchToProps = dispatch => {
+
   return {
     async _initSession(data) {
-      await dispatch(initSession(data));
+      await dispatch(initSession(data))
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Init);
+export default connect(mapStateToProps, mapDispatchToProps)(Init)
