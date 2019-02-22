@@ -1,16 +1,18 @@
+import React from 'react'
 import {
-    View,
-    Text,
-    StyleSheet
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight
 } from 'react-native'
 
-
- export function header(props){
-    return(
-        <View>
-            <Text>
-                aqui va la cabecera home
-            </Text>
-        </View>
-    )
+const HomeHeader = (props) => {
+  return (
+    <TouchableHighlight onPress={props.pushNotification}>
+      <Text>
+        <Text>{props}</Text>
+      </Text>
+    </TouchableHighlight>
+  )
 }
+export default HomeHeader

@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { header } from '../container/homeHeader'
+import  HomeHeader from '../container/homeHeader'
 
 
 class Home extends Component {
@@ -10,7 +10,7 @@ class Home extends Component {
 
     render() {
         return (
-            header(props)
+            <HomeHeader />
         )
     }
 }
