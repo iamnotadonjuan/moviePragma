@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "340869565697",
+    "firebase_url": "https://arquitecturapragma.firebaseio.com",
+    "project_id": "arquitecturapragma",
+    "storage_bucket": "arquitecturapragma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340869565697:android:8300e096b735e7e1",
+        "android_client_info": {
+          "package_name": "com.arquetipo_pragma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340869565697-q8oc081965efirptdgkfn76c5s20ioa7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHo771B6G7eQO1tE4u0BbgSwDx1MJL5xc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
