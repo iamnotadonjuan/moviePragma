@@ -18,7 +18,6 @@ export default (state = initialState, action) => {
         age: action.data.age
       }
     case INIT_SESSION:
-    console.log(action.payload.data.idUser)
       return {
         ...state,
         isloader: true,

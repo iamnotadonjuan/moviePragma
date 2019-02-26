@@ -22,10 +22,10 @@ class Init extends Component {
   }
 
   async _render() {
-    const { navigate } = this.props.navigation
-    const idUser = await AsyncStorage.getItem('id')
-    await this.props._initSession({ idUser })
-    navigate ('Index')
+    // const { navigate } = this.props.navigation
+    // const idUser = await AsyncStorage.getItem('id')
+    // await this.props._initSession({ idUser })
+    // navigate ('Index')
   }
 
 
