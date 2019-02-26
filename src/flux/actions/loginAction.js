@@ -1,11 +1,6 @@
 import { LOGIN_ACTION, INIT_SESSION } from '../actionTypes'
 
-const login = data => {
-  let user = {
-    userName: 'israel',
-    surName: 'tarazona',
-    age: 28
-  }
+const login = (data) => {
   return dispatch => {
     dispatch(_login(user))
   }
@@ -14,7 +9,7 @@ const login = data => {
 const _login = (data) => {
   return {
     type: LOGIN_ACTION,
-    data
+    paylod: { data }
   }
 }
 
@@ -26,7 +21,7 @@ const initSession = data => {
 
 const _initSession = (data) => {
   return {
-    type:INIT_SESSION,
+    type: INIT_SESSION,
     payload: { data }
   }
 }
