@@ -3,6 +3,7 @@ import Home from '../views/homeView/component/home'
 import Login from '../views/loginView/component/login'
 import Signin from '../views/signinView/component/signIn'
 import Init from '../views/initView/component/init'
+import Menu from '../views/menuView/component/menu'
 
 const IndexStack = createStackNavigator(
   {
@@ -16,6 +17,7 @@ const IndexStack = createStackNavigator(
 const AppStack = createStackNavigator(
   {
     Home: { screen: Home },
+    Menu: {screen: Menu}
   }, {
     headerMode: 'none',
   }
@@ -28,7 +30,7 @@ export default createAppContainer(createSwitchNavigator(
     App: AppStack
   },
   {
-    initialRouteName: 'Init'
+    initialRouteName: 'Index'
   }
 )
 )
