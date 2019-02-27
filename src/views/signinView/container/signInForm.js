@@ -2,8 +2,7 @@ import React from 'react'
 import {
   View,
   TextInput,
-  Button,
-  Text
+  Button
 } from 'react-native'
 
 function SignInForm (props) {

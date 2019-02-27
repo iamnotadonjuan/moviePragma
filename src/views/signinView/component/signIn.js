@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import SignInForm from '../container/signInForm'
 import update from 'immutability-helper'
 import firebase from '../../../services/firebase'
+import SignInHeader from '../container/signinHeader'
+import {
+  View
+} from 'react-native'
 
 class SignIn extends Component {
 
@@ -21,6 +25,11 @@ class SignIn extends Component {
   signIn = async () => {
     console.log(this.state.user)
     // TODO logic firebasecreate user
+  }
+
+  backButton = () => {
+    const { goBack } = this.props.navigation
+    goBack()
   }
 
   onChangeFirstName = (value) => {
@@ -60,7 +69,10 @@ class SignIn extends Component {
 
   render () {
     return (
-      <SignInForm user={this.state.user} onChangeFirstName={this.onChangeFirstName} onChangeLastName={this.onChangeLastName} onChangeEmail={this.onChangeEmail} onChangePassword={this.onChangePassword} onChangeConfirmPassword={this.onChangeConfirmPassword} signIn={this.signIn} />
+      <View>
+        <SignInHeader backButton={this.backButton} />
+        <SignInForm user={this.state.user} onChangeFirstName={this.onChangeFirstName} onChangeLastName={this.onChangeLastName} onChangeEmail={this.onChangeEmail} onChangePassword={this.onChangePassword} onChangeConfirmPassword={this.onChangeConfirmPassword} signIn={this.signIn} />
+      </View>
     )
   }
 }
