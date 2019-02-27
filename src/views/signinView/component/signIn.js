@@ -5,8 +5,8 @@ import firebase from '../../../services/firebase'
 
 class SignIn extends Component {
 
-  constructor (props) {
-    super (props)
+  constructor(props) {
+    super(props)
     this.state = {
       user: {
         firstName: '',
@@ -58,9 +58,16 @@ class SignIn extends Component {
     this.setState({ user: newUser })
   }
 
-  render () {
+  render() {
     return (
-      <SignInForm user={this.state.user} onChangeFirstName={this.onChangeFirstName} onChangeLastName={this.onChangeLastName} onChangeEmail={this.onChangeEmail} onChangePassword={this.onChangePassword} onChangeConfirmPassword={this.onChangeConfirmPassword} signIn={this.signIn} />
+      <SignInForm user={this.state.user}
+        onChangeFirstName={this.onChangeFirstName}
+        onChangeLastName={this.onChangeLastName}
+        onChangeEmail={this.onChangeEmail}
+        onChangePassword={this.onChangePassword}
+        onChangeConfirmPassword={this.onChangeConfirmPassword}
+        signIn={this.signIn}
+      />
     )
   }
 }
