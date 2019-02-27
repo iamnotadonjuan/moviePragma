@@ -2,6 +2,7 @@ import { createSwitchNavigator, createStackNavigator, createAppContainer } from 
 import Home from '../views/homeView/component/home'
 import Login from '../views/loginView/component/login'
 import Init from '../views/initView/component/init'
+import Menu from '../views/menuView/component/menu'
 
 const IndexStack = createStackNavigator(
   {
@@ -14,6 +15,7 @@ const IndexStack = createStackNavigator(
 const AppStack = createStackNavigator(
   {
     Home: { screen: Home },
+    Menu: {screen: Menu}
   }, {
     headerMode: 'none',
   }

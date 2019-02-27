@@ -1,18 +1,19 @@
 import React from 'react'
 import {
   View,
-  StyleSheet,
-  Text,
-  ScrollView
+  ScrollView,
+  SafeAreaView
 } from 'react-native'
 import HomeStyle from './styles/homeStyle'
 
 function HomeLayout(props) {
   return (
     <View style={HomeStyle.container}>
-      <ScrollView>
-        {props.children}
-      </ScrollView>
+      <SafeAreaView>
+        <ScrollView>
+          {props.children}
+        </ScrollView>
+      </SafeAreaView>
     </View>
   )
 }

@@ -4,15 +4,20 @@ import HomeLayout from '../container/homeLayout'
 import Header from '../container/header'
 import HomeList from '../container/homeList'
 import { listMovie } from '../../../flux/actions/homeAction'
-import HomeTendency from '../container/homeTendency.js'
+import HomeTendency from '../container/homeTendency'
+import Menu from '../../menuView/component/menu'
+import SideMenu from 'react-native-side-menu'
 
 class Home extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      isOpen: false
+    }
     this._listMovies()
   }
 
-  getTwoList(){
+  getTwoList() {
     const { listMovie } = this.props
     var array = listMovie.slice(0)
     var val = Math.floor(array.length / 2)
@@ -29,17 +34,30 @@ class Home extends Component {
   }
 
   menu = () => {
-    alert('show menu')
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+   
+  }
+
+  updateMenu(isOpen) {
+    this.setState({ isOpen })
   }
 
   render() {
-    console.log('aqui')
     return (
-      <HomeLayout>
-        <Header navigation={this.props.navigation} menu={this.menu} />
-        <HomeTendency />
-        <HomeList navigation={this.props.navigation} listMovie ={this.getTwoList()} />
-      </HomeLayout>
+      <SideMenu
+        navigation={this.props.navigation}
+        menu={<Menu />}
+        isOpen={this.state.isOpen}
+        onChange={(isOpen) => this.updateMenu(isOpen)}
+      >
+        <HomeLayout>
+          <Header navigation={this.props.navigation} menu={this.menu} />
+          <HomeTendency />
+          <HomeList navigation={this.props.navigation} listMovie={this.getTwoList()} />
+        </HomeLayout>
+      </SideMenu>
     )
   }
 }
