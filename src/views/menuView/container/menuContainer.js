@@ -63,19 +63,10 @@ const MenuContainer = (props) => {
           <Text style={styles.text}>Available for Download</Text>
         </View>
         <View style={styles.noSelectedItems}>
-          <Text style={styles.text}>Netflix Originals</Text>
-        </View>
-        <View style={styles.noSelectedItems}>
           <Text style={styles.text}>Tv Show</Text>
         </View>
         <View style={styles.noSelectedItems}>
           <Text style={styles.text}>Actions & Aventure</Text>
-        </View>
-        <View style={styles.noSelectedItems}>
-          <Text style={styles.text}>children & Family Movies</Text>
-        </View>
-        <View style={styles.noSelectedItems}>
-          <Text style={styles.text}>Comedies</Text>
         </View>
         <View style={styles.noSelectedItems}>
           <Text style={styles.text}>Documentaries</Text>
@@ -85,9 +76,6 @@ const MenuContainer = (props) => {
         </View>
         <View style={styles.noSelectedItems}>
           <Text style={styles.text}>Independent Movies</Text>
-        </View>
-        <View style={styles.noSelectedItems}>
-          <Text style={styles.text}>Indian Movies</Text>
         </View>
       </ScrollView>
     </View>
