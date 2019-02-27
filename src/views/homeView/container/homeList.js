@@ -9,16 +9,10 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 function _renderItem(item, props) {
-    const { navigate } = props.navigation
     return (
-        // <TouchableWithoutFeedback onPress={
-        //     () => navigate('Details', { item: item })}
-        // >
-        <TouchableWithoutFeedback onPress={ () => alert ('apreto')}
-        >
+        <TouchableWithoutFeedback onPress={() => props.detailMovie(item)}>
             <Image style={{ width: 120, height: 180 }} source={{ uri: item.medium_cover_image }} />
         </TouchableWithoutFeedback>
-
     )
 }
 

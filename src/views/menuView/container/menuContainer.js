@@ -4,10 +4,10 @@ import {
   View,
   StyleSheet,
   Dimensions,
-  ScrollView
+  ScrollView,
+  TouchableHighlight
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import IonIcons from 'react-native-vector-icons/Ionicons'
 
 
 const { width, height } = Dimensions.get('window')
@@ -20,7 +20,9 @@ const MenuContainer = (props) => {
           {/* <Image style={styles.avatar} source={require('../../image/usuario.jpg')} /> */}
           <Text style={styles.text}>PRAGMA</Text>
         </View>
-        {/* <Icon name="exchange" color="white" size={25} /> */}
+        {/* <TouchableHighlight onPress={props.closeMenu}>
+          <Icon name="close" color="white" size={25} />
+        </TouchableHighlight> */}
       </View>
       <ScrollView style={styles.scrollContainer}>
         <View style={styles.textWithIcon}>
@@ -42,9 +44,9 @@ const MenuContainer = (props) => {
         </View>
         <View style={styles.textWithIcon}>
           <View style={styles.withIcon}>
-            <IonIcons
+            <Icon
               style={styles.iconWidthText}
-              name="md-checkmark"
+              name="check"
               color="white"
               size={28}
             />
@@ -61,22 +63,7 @@ const MenuContainer = (props) => {
           <Text style={styles.text}>Home</Text>
         </View>
         <View style={styles.noSelectedItems}>
-          <Text style={styles.text}>Available for Download</Text>
-        </View>
-        <View style={styles.noSelectedItems}>
-          <Text style={styles.text}>Tv Show</Text>
-        </View>
-        <View style={styles.noSelectedItems}>
-          <Text style={styles.text}>Actions & Aventure</Text>
-        </View>
-        <View style={styles.noSelectedItems}>
-          <Text style={styles.text}>Documentaries</Text>
-        </View>
-        <View style={styles.noSelectedItems}>
           <Text style={styles.text}>Dramas</Text>
-        </View>
-        <View style={styles.noSelectedItems}>
-          <Text style={styles.text}>Independent Movies</Text>
         </View>
       </ScrollView>
     </View>

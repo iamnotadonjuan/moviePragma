@@ -33,11 +33,15 @@ class Home extends Component {
     await this.props._listMovie({ limit, quality, url })
   }
 
+  detailMovie = (data) => {
+    const { navigate } = this.props.navigation
+    navigate('Detail', data)
+  }
+
   menu = () => {
     this.setState({
       isOpen: !this.state.isOpen
     })
-   
   }
 
   updateMenu(isOpen) {
@@ -48,14 +52,14 @@ class Home extends Component {
     return (
       <SideMenu
         navigation={this.props.navigation}
-        menu={<Menu />}
+        menu={<Menu isOpen={this.state.isOpen} />}
         isOpen={this.state.isOpen}
         onChange={(isOpen) => this.updateMenu(isOpen)}
       >
         <HomeLayout>
           <Header navigation={this.props.navigation} menu={this.menu} />
           <HomeTendency />
-          <HomeList navigation={this.props.navigation} listMovie={this.getTwoList()} />
+          <HomeList navigation={this.props.navigation} listMovie={this.getTwoList()} detailMovie={this.detailMovie} />
         </HomeLayout>
       </SideMenu>
     )

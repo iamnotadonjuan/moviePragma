@@ -4,6 +4,7 @@ import Login from '../views/loginView/component/login'
 import Signin from '../views/signinView/component/signIn'
 import Init from '../views/initView/component/init'
 import Menu from '../views/menuView/component/menu'
+import Detail from '../views/detailView/component/detail'
 
 const IndexStack = createStackNavigator(
   {
@@ -17,7 +18,8 @@ const IndexStack = createStackNavigator(
 const AppStack = createStackNavigator(
   {
     Home: { screen: Home },
-    Menu: {screen: Menu}
+    Menu: { screen: Menu },
+    Detail: { screen: Detail }
   }, {
     headerMode: 'none',
   }
