@@ -1,14 +1,12 @@
 import React from 'react'
 import {
   View,
-  StyleSheet,
-  Text
+  StyleSheet
 } from 'react-native'
 
-function LoaderLayout(props) {
+export default function LoginLayout (props) {
   return (
     <View style={styles.container}>
-      <Text>Header layout</Text>
       {props.children}
     </View>
   )
@@ -17,8 +15,7 @@ function LoaderLayout(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#b6b6b6'
+    flexDirection: 'column',
+    justifyContent: 'center'
   }
 })
-
-export default LoaderLayout

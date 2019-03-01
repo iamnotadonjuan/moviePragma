@@ -1,1 +1,1 @@
-export { login, initSession } from './loginAction'
+export { login, initSession, saveUserInfo } from './loginAction'

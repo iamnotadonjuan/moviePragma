@@ -2,11 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import LoaderLogin from '../container/loader'
 import { initSession } from '../../../flux/actions'
-import {
-  AsyncStorage
-} from 'react-native'
-const global = 123
-
+import conection from '../../../services/firebase'
+import { getSession } from '../../../flux/actions/loginAction'
 
 class Init extends Component {
   constructor(props) {
@@ -18,14 +15,14 @@ class Init extends Component {
   }
 
   async componentDidMount() {
+    conection.initialize()
     await this._render()
   }
 
   async _render() {
-    // const { navigate } = this.props.navigation
-    // const idUser = await AsyncStorage.getItem('id')
-    // await this.props._initSession({ idUser })
-    // navigate ('Index')
+    const { navigate } = this.props.navigation
+    const loggedIn = await getSession()
+    loggedIn != 'true' ? navigate('Home') : navigate('Login')
   }
 
 

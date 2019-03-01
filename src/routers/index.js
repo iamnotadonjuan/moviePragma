@@ -23,7 +23,7 @@ const AppStack = createStackNavigator(
   }, {
     headerMode: 'none',
   }
-);
+)
 
 export default createAppContainer(createSwitchNavigator(
   {
@@ -32,7 +32,6 @@ export default createAppContainer(createSwitchNavigator(
     App: AppStack
   },
   {
-    initialRouteName: 'App'
+    initialRouteName: 'Init'
   }
-)
-);
+))
