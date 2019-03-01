@@ -30,7 +30,6 @@ export default createAppContainer(createSwitchNavigator(
     App: AppStack
   },
   {
-    initialRouteName: 'Index'
+    initialRouteName: 'Init'
   }
-)
-)
+))

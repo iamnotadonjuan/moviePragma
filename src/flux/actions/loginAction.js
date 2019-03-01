@@ -1,22 +1,26 @@
-import { LOGIN_ACTION, INIT_SESSION } from '../actionTypes'
+import { INIT_SESSION } from '../actionTypes'
+import {
+  AsyncStorage
+} from 'react-native'
 
-const login = (data) => {
-  return dispatch => {
-    dispatch(_login(user))
-  }
-}
-
-const _login = (data) => {
-  return {
-    type: LOGIN_ACTION,
-    paylod: { data }
-  }
-}
-
-const initSession = data => {
-    return dispatch => {
+export const initSession = data => {
+  return async dispatch => {
+    try {
+      console.log(data)
+      await AsyncStorage.setItem('loggedIn', data.toString())
       dispatch(_initSession(data))
+    } catch (error) {
+      console.log(error)
     }
+  }
+}
+
+export const getSession = async () => {
+  try {
+    return await AsyncStorage.getItem('loggedIn')
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 const _initSession = (data) => {
@@ -25,5 +29,3 @@ const _initSession = (data) => {
     payload: { data }
   }
 }
-
-export { login, initSession }

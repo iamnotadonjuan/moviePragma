@@ -1,16 +1,20 @@
-import { MOVIE_LIST } from "../actionTypes";
+import { SAVE_USER } from "../actionTypes"
 
 const initialState = {
-  list: []
+  user: {
+    uuid: '',
+    displayName: '',
+    email: ''
+  }
 }
+
 export default (state = initialState, action) => {
   switch (action.type) {
-    case MOVIE_LIST:
+    case SAVE_USER:
       return {
         ...state,
-        list: action.payload.data.movies
+        user: action.payload.user
       }
-
     default:
       return state
   }
