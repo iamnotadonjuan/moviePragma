@@ -3,7 +3,7 @@ const { width } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   container: {
-    height: 240,
+    height: 250,
     alignItems: 'center',
     justifyContent: 'center',
     width: width

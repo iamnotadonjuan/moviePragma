@@ -7,7 +7,7 @@ import {
 
 function DetailLayout(props) {
   return (
-    <View style={{flex: 1,  backgroundColor: '#757575'}}>
+    <View style={{flex: 1,  backgroundColor: '#181818'}}>
       <SafeAreaView>
         <ScrollView>
           {props.children}
