@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import LoginLayout from '../container/loginLayout'
 import {
-  View,
   ToastAndroid
 } from 'react-native'
 import LoginHeader from '../container/loginHeader'
@@ -105,8 +105,7 @@ class Login extends Component {
 
   render() {
     return (
-      <View>
-        <LoginHeader />
+      <LoginLayout>
         <LoginForm
           changeTextEmail={this.changeTextEmail}
           changeTextPassword={this.changeTextPassword}
@@ -119,7 +118,7 @@ class Login extends Component {
           emailError={this.state.emailError}
           passwordError={this.state.passwordError}
         />
-      </View>
+      </LoginLayout>
     )
   }
 }

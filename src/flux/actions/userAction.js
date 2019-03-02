@@ -14,7 +14,7 @@ const saveUserInfo = (data) => {
   }
 }
 
-const retrieveUserInfo = async (data) => {
+const retrieveUserInfo = async () => {
   try {
     return await AsyncStorage.getItem('currentUser')
   } catch (error) {

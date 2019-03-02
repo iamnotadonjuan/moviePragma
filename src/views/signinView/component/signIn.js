@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import SignInForm from '../container/signInForm'
 import update from 'immutability-helper'
 import SignInHeader from '../container/signinHeader'
+import SignInLayout from '../container/signInLayout'
 import { saveUserInfo } from '../../../flux/actions/userAction'
 import { initSession } from '../../../flux/actions/loginAction'
 import firebase from 'firebase'
@@ -112,7 +113,7 @@ class SignIn extends Component {
 
   render() {
     return (
-      <View>
+      <SignInLayout>
         <SignInHeader backButton={this.backButton} />
         <SignInForm
           user={this.state.user}
@@ -124,7 +125,7 @@ class SignIn extends Component {
           onChangeConfirmPassword={this.onChangeConfirmPassword}
           signIn={this.signIn}
         />
-      </View>
+      </SignInLayout>
     )
   }
 }
