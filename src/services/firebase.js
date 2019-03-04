@@ -12,5 +12,4 @@ const conection = {
     firebase.initializeApp(config)
   }
 }
-
 export default conection

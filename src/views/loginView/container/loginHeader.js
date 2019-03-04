@@ -9,7 +9,6 @@ import {
 function LoginHeader (props) {
   return (
     <Text>
-      <Text>aqui va el login cabecera</Text>
     </Text>
   )
 }

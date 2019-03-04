@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import LoginLayout from '../container/loginLayout'
 import {
-  View
+  ToastAndroid
 } from 'react-native'
 import LoginHeader from '../container/loginHeader'
 import { GoogleSignin, statusCodes } from 'react-native-google-signin'
 import LoginForm from '../container/loginForm'
-
+import { initSession } from '../../../flux/actions/loginAction'
+import { saveUserInfo } from '../../../flux/actions/userAction'
+import firebase from 'firebase'
 
 class Login extends Component {
   constructor(props) {
@@ -14,18 +17,25 @@ class Login extends Component {
     this.state = {
       isSigninInProgress: false,
       email: '',
-      password: ''
+      password: '',
+      emailError: '',
+      passowrdError: ''
     }
     GoogleSignin.configure()
   }
 
   signInGoogle = async () => {
     try {
+      const { _saveUserInfo, _initSession, navigation } = this.props
+      this.setState({ isSigninInProgress: true })
       await GoogleSignin.hasPlayServices()
       const userInfo = await GoogleSignin.signIn()
-      console.log(userInfo)
-      await this.isSignedIn()
+      await _saveUserInfo({ displayName: userInfo.user.name, email: userInfo.user.email, uuid: userInfo.user.id })
+      await _initSession(true)
+      this.setState({ isSigninInProgress: false })
+      navigation.navigate('Home')
     } catch (error) {
+      this.setState({ isSigninInProgress: false })
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         console.log('error', error)
       } else if (error.code === statusCodes.IN_PROGRESS) {
@@ -33,13 +43,46 @@ class Login extends Component {
       } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
         console.log('error', error)
       } else {
-        console.log('error')
+        console.log('error', error)
       }
     }
   }
 
   logIn = async () => {
-    // TODO: Log user
+    try {
+      const { navigation, _saveUserInfo, _initSession } = this.props
+      const { email, password } = this.state
+      const validate = await this.validateLogin()
+      if (validate) {
+        this.setState({ isSigninInProgress: true })
+        await firebase.auth().signInWithEmailAndPassword(email, password)
+        const user = await firebase.auth().currentUser
+        await _saveUserInfo({ displayName: user.displayName, email: user.email, uuid: user.uuid })
+        await _initSession(true)
+        this.setState({ isSigninInProgress: false })
+        navigation.navigate('Home')
+      }
+    } catch (error) {
+      ToastAndroid.show('Error trying to login', ToastAndroid.SHORT)
+      console.log(error)
+      this.setState({ isSigninInProgress: false })
+    }
+  }
+
+  validateLogin = async () => {
+    const { email, password } = this.state
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    this.setState({
+      emailError: email != '' ? '' : 'Email is required',
+      passwordError: password != '' ? '' : 'Password is required'
+    })
+    if (email.length > 0) {
+      this.setState({
+        emailError: reg.test(email) ? '' : 'Format email is invalid'
+      })
+    }
+    if (email != '' && password != '') return true
+    return false
   }
 
   moveToSignin = async () => {
@@ -62,12 +105,33 @@ class Login extends Component {
 
   render() {
     return (
-      <View>
-        <LoginHeader />
-        <LoginForm changeTextEmail={this.changeTextEmail} changeTextPassword={this.changeTextPassword} email={this.state.email} password={this.state.password} logIn={this.logIn} signInGoogle={this.signInGoogle} isSigninInProgress={this.state.isSigninInProgress} moveToSignin={this.moveToSignin} />
-      </View>
+      <LoginLayout>
+        <LoginForm
+          changeTextEmail={this.changeTextEmail}
+          changeTextPassword={this.changeTextPassword}
+          email={this.state.email}
+          password={this.state.password}
+          logIn={this.logIn}
+          signInGoogle={this.signInGoogle}
+          isSigninInProgress={this.state.isSigninInProgress}
+          moveToSignin={this.moveToSignin}
+          emailError={this.state.emailError}
+          passwordError={this.state.passwordError}
+        />
+      </LoginLayout>
     )
   }
 }
 
-export default Login 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    async _initSession(data) {
+      await dispatch(initSession(data))
+    },
+    async _saveUserInfo(data) {
+      await dispatch(saveUserInfo(data))
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

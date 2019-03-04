@@ -2,45 +2,109 @@ import React from 'react'
 import {
   View,
   TextInput,
-  Button,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableHighlight,
+  StyleSheet
 } from 'react-native'
 import { GoogleSigninButton } from 'react-native-google-signin'
 
 
 function LoginForm (props) {
+  const {
+    email,
+    password,
+    logIn,
+    emailError,
+    passwordError,
+    moveToSignin,
+    changeTextEmail,
+    changeTextPassword,
+    signInGoogle,
+    isSigninInProgress
+  } = props
   return (
     <View>
       <TextInput
-        onChangeText={(text) => props.changeTextEmail(text)}
-        value={props.email}
+        onChangeText={(text) => changeTextEmail(text)}
+        value={email}
         placeholder='Email'
+        keyboardType='email-address'
+        placeholderTextColor='#FDFDFD'
+        style={styles.textInput}
       />
+      <Text style={styles.textError}>{emailError}</Text>
       <TextInput
-        onChangeText={(text) => props.changeTextPassword(text)}
-        value={props.password}
+        onChangeText={(text) => changeTextPassword(text)}
+        value={password}
         secureTextEntry={true}
         placeholder='Password'
+        placeholderTextColor='#FDFDFD'
+        style={styles.textInput}
       />
-      <Button onPress={props.logIn} title='login' />
+      <Text style={styles.textError}>{passwordError}</Text>
+      <View style={{ margin: 10 }}>
+        <TouchableHighlight style={styles.loginButton} color='#313131' onPress={logIn}>
+          <Text style={styles.textButton}>Login</Text>
+        </TouchableHighlight>
+      </View>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', margin: 10 }}>
-        <Text>¿No tienes una cuenta?</Text>
-        <TouchableOpacity onPress={props.moveToSignin}><Text style={{ marginLeft: 5 }}>Registrate Aquí</Text></TouchableOpacity>
+        <Text style={styles.textDontAccount}>¿No tienes una cuenta?</Text>
+        <TouchableOpacity onPress={moveToSignin}>
+          <Text style={{ marginLeft: 5, color: '#F3983E' }}>Registrate Aquí</Text>
+        </TouchableOpacity>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'center', margin: 10 }}>
-        <Text style={{ textAlign: 'center' }}>Ó</Text>
+        <Text style={{ textAlign: 'center', color: '#FDFDFD' }}>Ó</Text>
       </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+      <View style={styles.contentGoogle}>
         <GoogleSigninButton
-          style={{ width: 192, height: 48 }}
+          style={styles.googleButton}
           size={GoogleSigninButton.Size.Wide}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={props.signInGoogle}
-          disabled={props.isSigninInProgress} />
+          color={GoogleSigninButton.Color.Light}
+          onPress={signInGoogle}
+          disabled={isSigninInProgress} />
       </View>
     </View>
   )
 }
 
+const styles = StyleSheet.create({
+  textInput: {
+    backgroundColor: '#787878',
+    borderColor: '#787878',
+    color: '#FDFDFD',
+    borderWidth: 0,
+    borderRadius: 30,
+    margin: 5
+  },
+  contentGoogle: {
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  textDontAccount: {
+    color: '#FDFDFD'
+  },
+  loginButton: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    backgroundColor: '#F3983E',
+    borderRadius: 20,
+    height: 40
+  },
+  textButton: {
+    justifyContent: 'center',
+    color: '#FDFDFD',
+    textAlign: 'center'
+  },
+  googleButton: {
+    width: 400,
+    height: 50
+  },
+  textError: {
+    color: '#ff0000',
+    marginLeft: 15,
+    marginBottom: 10,
+  }
+})
 export default LoginForm
