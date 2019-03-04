@@ -10,10 +10,12 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 function SignInHeader (props) {
   return (
     <View style={styles.content}>
-      <TouchableOpacity style={styles.backButton} onPress={props.backButton}>
-        <Icon name='arrow-left' size={23} color='#FDFDFD' />
-      </TouchableOpacity>
-      {/*<Text style={styles.headerText}>Cabecera del signin form </Text>*/}
+      <View style={styles.childContent}>
+        <TouchableOpacity style={styles.backButton} onPress={props.backButton}>
+          <Icon name='arrow-left' size={23} color='#FDFDFD' />
+        </TouchableOpacity>
+        <Text style={styles.headerText}>Cabecera del signin form </Text>
+      </View>
     </View>
   )
 }
@@ -26,10 +28,14 @@ const styles = StyleSheet.create({
     height: 50
   },
   backButton: {
-    margin: 15
+    marginLeft: 15
   },
   headerText: {
+    marginLeft: 20,
     color: '#FDFDFD'
+  },
+  childContent: {
+    flexDirection: 'row'
   }
 })
 
