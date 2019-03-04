@@ -1,4 +1,4 @@
-import { INIT_FAVORITE, SAVE_RATING } from '../actionTypes'
+import { INIT_FAVORITE, SAVE_RATING, OPEN_MODAL } from '../actionTypes'
 
 const initFavorite = (data) => {
   return async dispatch => {
@@ -72,4 +72,12 @@ const _initStar = (dispatch,data) => {
 }
 
 
-export { initFavorite, saveRating }
+const openModal =(data) => {
+  return {
+    type: OPEN_MODAL,
+    payload: { data }
+  }
+}
+
+
+export { initFavorite, saveRating, openModal }

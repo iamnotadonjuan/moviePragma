@@ -17,7 +17,7 @@ function DetailBody(props) {
   const { params } = props.navigation.state
   const { favorite } = props
   const { goBack } = props.navigation
-  const { title, language, large_cover_image, rating, summary, title_long } = params
+  const { title, language, large_cover_image, rating, summary, title_long, torrents } = params
 
   return (
     <View style={styles.container}>
@@ -29,7 +29,7 @@ function DetailBody(props) {
           <TouchableWithoutFeedback onPress={() => goBack()}>
             <Icon name="angle-left" color="white" size={30} />
           </TouchableWithoutFeedback>
-          <TouchableNativeFeedback onPress={() => navigate('Video', { name: name })}>
+          <TouchableNativeFeedback onPress={() => props.modalDetail(torrents)}>
             <View>
               <Icon
                 name="download"

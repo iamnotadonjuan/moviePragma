@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import DetailLayout from '../container/detailLayout'
 import DetailBody from '../container/detailBody'
 import { connect } from 'react-redux'
-import { initFavorite, saveRating } from '../../../flux/actions/detailAction'
+import { initFavorite, saveRating, openModal } from '../../../flux/actions/detailAction'
+import DetailModal from '../container/detailModal'
+
 
 
 class Detail extends Component {
@@ -15,7 +17,8 @@ class Detail extends Component {
         star_3: false,
         star_4: false,
         star_5: false
-      }]
+      }],
+      isOpenModal: false
     }
     this._initFavorites();
   }
@@ -31,10 +34,27 @@ class Detail extends Component {
     await this.props._saveRating({ position, value, count })
   }
 
+  modalDetail = async (data) => {
+    const isOpenModal = this.props.isOpenModal;
+    await this.props._openModal({ isOpenModal })
+  }
+  isCloseModal = async () => {
+    const isOpenModal = this.props.isOpenModal;
+    await this.props._openModal({isOpenModal})
+  }
+
   render() {
     return (
       <DetailLayout>
-        <DetailBody navigation={this.props.navigation} saveFavorite={this.saveFavorite} favorite={this.props.favorite} />
+        <DetailBody
+          navigation={this.props.navigation}
+          saveFavorite={this.saveFavorite}
+          favorite={this.props.favorite}
+          modalDetail={this.modalDetail} />
+        <DetailModal
+          navigation={this.props.navigation}
+          isOpen={this.props.isOpenModal}
+          isCloseModal={this.isCloseModal} />
       </DetailLayout>
     )
   }
@@ -42,7 +62,8 @@ class Detail extends Component {
 
 const mapStateToProps = state => {
   return {
-    favorite: state.detail.favorite
+    favorite: state.detail.favorite,
+    isOpenModal: state.detail.isOpenModal
   }
 }
 
@@ -53,6 +74,9 @@ const mapDispatchToProps = dispatch => {
     },
     async _saveRating(data) {
       await dispatch(saveRating(data))
+    },
+    async _openModal(data) {
+      await dispatch(openModal(data))
     }
   }
 }
