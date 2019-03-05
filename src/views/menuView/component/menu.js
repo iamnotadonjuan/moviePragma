@@ -18,7 +18,6 @@ class Menu extends Component {
   logOut = async () => {
     try {
       const { _initSession, navigation } = this.props
-      console.log(this.props)
       const isSignedIn = await GoogleSignin.isSignedIn()
       if (isSignedIn) {
         await GoogleSignin.revokeAccess()

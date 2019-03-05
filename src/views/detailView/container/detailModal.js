@@ -16,11 +16,9 @@ renderButton = (text, props) => (
       <Text>{text}</Text>
     </View>
   </TouchableOpacity>
-);
+)
 
 renderModalContent = (props, torrents, title_long) => (
-  // console.log(torrents)
-
   <View style={styles.modalContent}>
     <View >
       <Text style={styles.titleMovie}>{title_long}</Text>
@@ -86,8 +84,6 @@ const styles = StyleSheet.create({
   modalContent: {
     backgroundColor: "white",
     padding: 22,
-    // justifyContent: "center",
-    // alignItems: "center",
     borderRadius: 4,
     borderColor: "rgba(0, 0, 0, 0.1)",
   },
@@ -118,6 +114,6 @@ const styles = StyleSheet.create({
     color:'#212121'
   }
 
-});
+})
 
 export default DetailBody

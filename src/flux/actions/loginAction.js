@@ -6,7 +6,6 @@ import {
 export const initSession = data => {
   return async dispatch => {
     try {
-      console.log(data)
       await AsyncStorage.setItem('loggedIn', data.toString())
       dispatch(_initSession(data))
     } catch (error) {
