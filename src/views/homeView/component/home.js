@@ -52,7 +52,7 @@ class Home extends Component {
     return (
       <SideMenu
         navigation={this.props.navigation}
-        menu={<Menu isOpen={this.state.isOpen} />}
+        menu={<Menu isOpen={this.state.isOpen} navigation={this.props.navigation} />}
         isOpen={this.state.isOpen}
         onChange={(isOpen) => this.updateMenu(isOpen)}
       >

@@ -8,6 +8,7 @@ import {
   StyleSheet
 } from 'react-native'
 import { GoogleSigninButton } from 'react-native-google-signin'
+import { i18n, withLanguage } from 'react-native-i18n-localize'
 
 
 function LoginForm (props) {
@@ -28,7 +29,7 @@ function LoginForm (props) {
       <TextInput
         onChangeText={(text) => changeTextEmail(text)}
         value={email}
-        placeholder='Email'
+        placeholder={i18n.t('login.emailLabel')}
         keyboardType='email-address'
         placeholderTextColor='#FDFDFD'
         style={styles.textInput}
@@ -38,24 +39,24 @@ function LoginForm (props) {
         onChangeText={(text) => changeTextPassword(text)}
         value={password}
         secureTextEntry={true}
-        placeholder='Password'
+        placeholder={i18n.t('login.passwordLabel')}
         placeholderTextColor='#FDFDFD'
         style={styles.textInput}
       />
       <Text style={styles.textError}>{passwordError}</Text>
       <View style={{ margin: 10 }}>
         <TouchableHighlight style={styles.loginButton} color='#313131' onPress={logIn}>
-          <Text style={styles.textButton}>Login</Text>
+          <Text style={styles.textButton}>{i18n.t('login.btnLogin')}</Text>
         </TouchableHighlight>
       </View>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', margin: 10 }}>
-        <Text style={styles.textDontAccount}>¿No tienes una cuenta?</Text>
+        <Text style={styles.textDontAccount}>{i18n.t('login.dontHaveAccount')}</Text>
         <TouchableOpacity onPress={moveToSignin}>
-          <Text style={{ marginLeft: 5, color: '#F3983E' }}>Registrate Aquí</Text>
+          <Text style={{ marginLeft: 5, color: '#F3983E' }}>{i18n.t('login.signIn')}</Text>
         </TouchableOpacity>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'center', margin: 10 }}>
-        <Text style={{ textAlign: 'center', color: '#FDFDFD' }}>Ó</Text>
+        <Text style={{ textAlign: 'center', color: '#FDFDFD' }}>{i18n.t('login.or')}</Text>
       </View>
       <View style={styles.contentGoogle}>
         <GoogleSigninButton
@@ -107,4 +108,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   }
 })
-export default LoginForm
+export default withLanguage(LoginForm)

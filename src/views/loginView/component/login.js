@@ -4,11 +4,11 @@ import LoginLayout from '../container/loginLayout'
 import {
   ToastAndroid
 } from 'react-native'
-import LoginHeader from '../container/loginHeader'
 import { GoogleSignin, statusCodes } from 'react-native-google-signin'
 import LoginForm from '../container/loginForm'
 import { initSession } from '../../../flux/actions/loginAction'
 import { saveUserInfo } from '../../../flux/actions/userAction'
+import { i18n } from 'react-native-i18n-localize'
 import firebase from 'firebase'
 
 class Login extends Component {
@@ -63,7 +63,7 @@ class Login extends Component {
         navigation.navigate('Home')
       }
     } catch (error) {
-      ToastAndroid.show('Error trying to login', ToastAndroid.SHORT)
+      ToastAndroid.show(i18n.t('login.errorLogin'), ToastAndroid.SHORT)
       console.log(error)
       this.setState({ isSigninInProgress: false })
     }
@@ -73,12 +73,12 @@ class Login extends Component {
     const { email, password } = this.state
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     this.setState({
-      emailError: email != '' ? '' : 'Email is required',
-      passwordError: password != '' ? '' : 'Password is required'
+      emailError: email != '' ? '' : i18n.t('login.emailError'),
+      passwordError: password != '' ? '' : i18n.t('login.passwordError')
     })
     if (email.length > 0) {
       this.setState({
-        emailError: reg.test(email) ? '' : 'Format email is invalid'
+        emailError: reg.test(email) ? '' : i18n.t('login.formatEmail')
       })
     }
     if (email != '' && password != '') return true
@@ -96,11 +96,6 @@ class Login extends Component {
 
   changeTextPassword = (value) => {
     this.setState({password: value})
-  }
-
-  isSignedIn = async () => {
-    const isSignedIn = await GoogleSignin.isSignedIn()
-    console.log(isSignedIn)
   }
 
   render() {

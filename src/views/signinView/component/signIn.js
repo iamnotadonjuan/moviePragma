@@ -7,9 +7,7 @@ import SignInLayout from '../container/signInLayout'
 import { saveUserInfo } from '../../../flux/actions/userAction'
 import { initSession } from '../../../flux/actions/loginAction'
 import firebase from 'firebase'
-import {
-  View
-} from 'react-native'
+import { i18n } from 'react-native-i18n-localize'
 
 class SignIn extends Component {
 
@@ -55,15 +53,15 @@ class SignIn extends Component {
     const { user, userErrors } = this.state
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     let newUser = update(userErrors, {
-      firstNameError: { $set: user.firstName == '' ? 'FirstName is required' : '' },
-      lastNameError: { $set: user.lastName == '' ? 'LastName is required' : '' },
-      emailError: { $set: user.email == '' ? 'Email is required' : reg.test(user.email) ? '' : 'Format email is invalid' },
-      passwordError: { $set: user.password == '' ? 'Password is required' : user.password.length < 6 ? 'Password has to be at least 6' : '' },
-      confirmPasswordError: { $set: user.confirmPassword == '' ? 'ConfirmPassword is required' : user.confirmPassword.length < 6 ? 'Password has to be at least 6' : '' }
+      firstNameError: { $set: user.firstName == '' ? i18n.t('signIn.firstNameError') : '' },
+      lastNameError: { $set: user.lastName == '' ? i18n.t('signIn.lastNameError') : '' },
+      emailError: { $set: user.email == '' ? i18n.t('signIn.emailError') : reg.test(user.email) ? '' : i18n.t('signIn.formatEmail') },
+      passwordError: { $set: user.password == '' ? i18n.t('signIn.passwordError') : user.password.length < 6 ? i18n.t('signIn.passwordErrorMin') : '' },
+      confirmPasswordError: { $set: user.confirmPassword == '' ? i18n.t('signIn.confirmPasswordError') : user.confirmPassword.length < 6 ? i18n.t('signIn.passwordErrorMin') : '' }
     })
     if (user.password != user.confirmPassword) {
       newUser = update(newUser, {
-        confirmPasswordError: { $set: 'The password has to match' }
+        confirmPasswordError: { $set: i18n.t('signIn.confirmPasswordErrorMatch') }
       })
     }
     this.setState({ userErrors: newUser })

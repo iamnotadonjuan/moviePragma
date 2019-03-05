@@ -13,6 +13,7 @@
     "react-native": "0.58.5",
     "react-native-gesture-handler": "^1.0.16",
     "react-native-google-signin": "^1.2.0",
+    "react-native-i18n-localize": "^1.0.4",
     "react-native-linear-gradient": "^2.5.3",
     "react-native-modal": "^9.0.0",
     "react-native-side-menu": "^1.1.3",

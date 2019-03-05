@@ -8,7 +8,7 @@ import {
   TouchableHighlight
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
-
+import { i18n } from 'react-native-i18n-localize'
 
 const { width, height } = Dimensions.get('window')
 
@@ -17,12 +17,8 @@ const MenuContainer = (props) => {
     <View style={styles.menu}>
       <View style={styles.avatarContainer}>
         <View style={styles.avatarImagen}>
-          {/* <Image style={styles.avatar} source={require('../../image/usuario.jpg')} /> */}
-          <Text style={styles.text}>PRAGMA</Text>
+          <Text style={styles.text}>{i18n.t('menu.title')}</Text>
         </View>
-        {/* <TouchableHighlight onPress={props.closeMenu}>
-          <Icon name="close" color="white" size={25} />
-        </TouchableHighlight> */}
       </View>
       <ScrollView style={styles.scrollContainer}>
         <View style={styles.textWithIcon}>
@@ -33,7 +29,7 @@ const MenuContainer = (props) => {
               color="white"
               size={28}
             />
-            <Text style={styles.text}>My Downloads</Text>
+            <Text style={styles.text}>{i18n.t('menu.download')}</Text>
           </View>
           <Icon
             style={styles.rightIcon}
@@ -50,7 +46,7 @@ const MenuContainer = (props) => {
               color="white"
               size={28}
             />
-            <Text style={styles.text}>My List</Text>
+            <Text style={styles.text}>{i18n.t('menu.myList')}</Text>
           </View>
           <Icon
             style={styles.rightIcon}
@@ -60,11 +56,16 @@ const MenuContainer = (props) => {
           />
         </View>
         <View style={[styles.items, styles.itemSelected]}>
-          <Text style={styles.text}>Home</Text>
+          <Text style={styles.text}>{i18n.t('menu.home')}</Text>
         </View>
         <View style={styles.noSelectedItems}>
-          <Text style={styles.text}>Dramas</Text>
+          <Text style={styles.text}>{i18n.t('menu.genre')}</Text>
         </View>
+        <TouchableHighlight onPress={props.logOut}>
+          <View style={styles.noSelectedItems}>
+              <Text style={styles.text}>{i18n.t('menu.logOut')}</Text>
+          </View>
+        </TouchableHighlight>
       </ScrollView>
     </View>
   )
@@ -92,12 +93,10 @@ const styles = StyleSheet.create({
     height: 60,
     marginRight: 20,
   },
-
   avatarImagen: {
     flexDirection: 'row',
     alignItems: 'center'
   },
-
   text: {
     color: '#b3b3b3',
     fontSize: 15
@@ -133,11 +132,11 @@ const styles = StyleSheet.create({
     borderLeftWidth: 5,
     borderColor: 'orange'
   },
-
   noSelectedItems: {
     paddingVertical: 20,
     paddingLeft: 25,
     marginTop: 5,
   }
 })
+
 export default MenuContainer

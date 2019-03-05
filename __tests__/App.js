@@ -1,15 +1,19 @@
-/**
- * @format
- * @lint-ignore-every XPLATJSCOPYRIGHT1
- */
-
-import 'react-native';
-import React from 'react';
+import 'react-native'
+import React from 'react'
 import App from '../App';
+import Adapter from 'enzyme-adapter-react-16'
+import { shallow, configure } from 'enzyme'
+import configureStore from 'redux-mock-store'
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
 
-it('renders correctly', () => {
-  renderer.create(<App />);
-});
+const mockStore = configureStore()
+
+configure({ adapter: new Adapter() })
+describe('Testing App component', () => {
+  it('App renderers', () => {
+    const wrapper = shallow(
+      <App />
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+})

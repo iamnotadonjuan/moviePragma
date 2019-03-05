@@ -6,6 +6,7 @@ import {
   StyleSheet
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { i18n } from 'react-native-i18n-localize'
 
 function SignInHeader (props) {
   return (
@@ -14,7 +15,7 @@ function SignInHeader (props) {
         <TouchableOpacity style={styles.backButton} onPress={props.backButton}>
           <Icon name='arrow-left' size={23} color='#FDFDFD' />
         </TouchableOpacity>
-        <Text style={styles.headerText}>Cabecera del signin form </Text>
+        <Text style={styles.headerText}>{i18n.t('signIn.titleHeader')}</Text>
       </View>
     </View>
   )

@@ -4,19 +4,25 @@ import LoaderLogin from '../container/loader'
 import { initSession } from '../../../flux/actions'
 import conection from '../../../services/firebase'
 import { getSession } from '../../../flux/actions/loginAction'
+import { I18nLocalize } from 'react-native-i18n-localize'
+import { en } from '../../../../locales/en'
+import { es } from '../../../../locales/es'
 
 class Init extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
       load: 'Loading...',
       isloader: false
     }
+    I18nLocalize.initialLanguage({ en, es })
   }
 
   async componentDidMount() {
     conection.initialize()
     await this._render()
+    I18nLocalize.setLanguage('en')
   }
 
   async _render() {

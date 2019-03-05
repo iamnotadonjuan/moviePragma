@@ -6,6 +6,7 @@ import {
   View,
   TouchableHighlight
 } from 'react-native'
+import { i18n } from 'react-native-i18n-localize'
 
 function SignInForm (props) {
   return (
@@ -13,7 +14,7 @@ function SignInForm (props) {
       <TextInput
         onChangeText={(text) => props.onChangeFirstName(text)}
         value={props.user.firstName}
-        placeholder='First Name'
+        placeholder={i18n.t('signIn.firstName')}
         placeholderTextColor='#FDFDFD'
         style={styles.textInput}
       />
@@ -21,7 +22,7 @@ function SignInForm (props) {
       <TextInput
         onChangeText={(text) => props.onChangeLastName(text)}
         value={props.user.lastName}
-        placeholder='Last Name'
+        placeholder={i18n.t('signIn.lastName')}
         placeholderTextColor='#FDFDFD'
         style={styles.textInput}
       />
@@ -29,7 +30,7 @@ function SignInForm (props) {
       <TextInput
         onChangeText={(text) => props.onChangeEmail(text)}
         value={props.user.email}
-        placeholder='Email'
+        placeholder={i18n.t('signIn.email')}
         keyboardType='email-address'
         placeholderTextColor='#FDFDFD'
         style={styles.textInput}
@@ -39,7 +40,7 @@ function SignInForm (props) {
         onChangeText={(text) => props.onChangePassword(text)}
         value={props.user.password}
         secureTextEntry={true}
-        placeholder='Password'
+        placeholder={i18n.t('signIn.password')}
         placeholderTextColor='#FDFDFD'
         style={styles.textInput}
       />
@@ -48,13 +49,13 @@ function SignInForm (props) {
         onChangeText={(text) => props.onChangeConfirmPassword(text)}
         value={props.user.confirmPassword}
         secureTextEntry={true}
-        placeholder='Confirm Password'
+        placeholder={i18n.t('signIn.confirmPassword')}
         placeholderTextColor='#FDFDFD'
         style={styles.textInput}
       />
       <Text style={styles.textError}>{props.userErrors.confirmPasswordError}</Text>
       <TouchableHighlight style={styles.loginButton} color='#313131' onPress={props.signIn}>
-        <Text style={styles.textButton}>Sign In</Text>
+        <Text style={styles.textButton}>{i18n.t('signIn.signIn')}</Text>
       </TouchableHighlight>
     </View>
   )
