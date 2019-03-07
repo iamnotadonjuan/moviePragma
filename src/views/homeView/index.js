@@ -26,7 +26,7 @@ export default function HomeView(props) {
       <HomeLayout>
         <HomeHeader navigation={navigation} menu={menu} />
         <HomeTendency title={i18n.t('homeTendency.title')} />
-        <HomeList navigation={navigation} listMovie={getTwoList()} detailMovie={detailMovie} />
+        <HomeList navigation={navigation} listMovie={getTwoList} detailMovie={detailMovie} />
       </HomeLayout>
     </SideMenu>
   )

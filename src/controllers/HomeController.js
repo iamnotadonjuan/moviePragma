@@ -49,7 +49,7 @@ class Home extends Component {
         isOpen={this.state.isOpen}
         updateMenu={this.updateMenu}
         menu={this.menu}
-        getTwoList={this.getTwoList}
+        getTwoList={this.getTwoList()}
         detailMovie={this.detailMovie}
       />
     )
