@@ -16,6 +16,7 @@ const initialState = {
   linkUpdate:[]
 }
 export default (state = initialState, action) => {
+
   switch (action.type) {
     case INIT_FAVORITE:
       return {

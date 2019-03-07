@@ -1,6 +1,7 @@
 import React from 'react'
 import DetailLayout from '../../templates/detailLayout'
 import Body from '../detailView/body'
+import Modal from '../detailView/modal'
 
 export default function DetailView(props) {
   const {
@@ -19,11 +20,12 @@ export default function DetailView(props) {
         favorite={favorite}
         modalDetail={modalDetail}
       />
-      {/* <DetailModal
+      <Modal
         navigation={navigation}
         isOpen={isOpenModal}
         isCloseModal={isCloseModal}
-      /> */}
+       
+      />
     </DetailLayout>
   )
 }
