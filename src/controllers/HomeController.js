@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import HomeLayout from '../container/homeLayout'
-import Header from '../container/header'
-import HomeList from '../container/homeList'
-import { listMovie } from '../../../flux/actions/homeAction'
-import HomeTendency from '../container/homeTendency'
-import Menu from '../../menuView/component/menu'
-import SideMenu from 'react-native-side-menu'
+import { listMovie } from '../flux/actions/homeAction'
+import HomeView from '../views/homeView'
 
 class Home extends Component {
   constructor(props) {
@@ -24,7 +19,6 @@ class Home extends Component {
     var newArray = array.splice(0, val)
     return [array, newArray]
   }
-
 
   async _listMovies() {
     const limit = '?limit=20'
@@ -50,18 +44,14 @@ class Home extends Component {
 
   render() {
     return (
-      <SideMenu
+      <HomeView
         navigation={this.props.navigation}
-        menu={<Menu isOpen={this.state.isOpen} navigation={this.props.navigation} />}
         isOpen={this.state.isOpen}
-        onChange={(isOpen) => this.updateMenu(isOpen)}
-      >
-        <HomeLayout>
-          <Header navigation={this.props.navigation} menu={this.menu} />
-          <HomeTendency />
-          <HomeList navigation={this.props.navigation} listMovie={this.getTwoList()} detailMovie={this.detailMovie} />
-        </HomeLayout>
-      </SideMenu>
+        updateMenu={this.updateMenu}
+        menu={this.menu}
+        getTwoList={this.getTwoList}
+        detailMovie={this.detailMovie}
+      />
     )
   }
 }

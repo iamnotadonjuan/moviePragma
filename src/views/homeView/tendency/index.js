@@ -4,19 +4,19 @@ import {
   View,
 } from 'react-native'
 import IonIcons from 'react-native-vector-icons/Ionicons'
-import TendencyStyle from '../container/styles/tendencyStyle'
-import { i18n } from 'react-native-i18n-localize'
+import { styles } from './style'
 
 function HomeTendency(props) {
+  const { title } = props
   return (
-    <View style={TendencyStyle.container}>
-      <View style={TendencyStyle.tendency}>
+    <View style={styles.container}>
+      <View style={styles.tendency}>
         <IonIcons
           name="md-star-outline"
           color="orange"
           size={150}
         />
-        <Text style={TendencyStyle.tendencyText}>{i18n.t('homeTendency.title')}</Text>
+        <Text style={styles.tendencyText}>{title}</Text>
       </View>
     </View>
   )

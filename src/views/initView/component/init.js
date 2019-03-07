@@ -28,7 +28,7 @@ class Init extends Component {
   async _render() {
     const { navigate } = this.props.navigation
     const loggedIn = await getSession()
-    loggedIn == 'true' ? navigate('Home') : navigate('Login')
+    loggedIn != 'true' ? navigate('Home') : navigate('Login')
   }
 
 

@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native'
 const { width } = Dimensions.get('window')
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     height: 250,
     alignItems: 'center',
@@ -18,5 +18,3 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 })
-
-export default styles

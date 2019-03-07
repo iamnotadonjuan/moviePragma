@@ -4,11 +4,11 @@ import {
   ScrollView,
   SafeAreaView
 } from 'react-native'
-import HomeStyle from './styles/homeStyle'
+import { styles } from './style'
 
 function HomeLayout(props) {
   return (
-    <View style={HomeStyle.container}>
+    <View style={styles.container}>
       <SafeAreaView>
         <ScrollView>
           {props.children}

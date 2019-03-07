@@ -4,13 +4,13 @@ import {
   TouchableWithoutFeedback
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import HeaderStyle from './styles/headerStyle'
-
+import { styles } from './style'
 
 function Header(props) {
+  const { menu } = props
   return (
-    <View style={HeaderStyle.container}>
-      <TouchableWithoutFeedback onPress={props.menu}>
+    <View style={styles.container}>
+      <TouchableWithoutFeedback onPress={menu}>
         <Icon name="bars" color="white" size={25} />
       </TouchableWithoutFeedback>
       <TouchableWithoutFeedback onPress={() => navigate('Search')}>

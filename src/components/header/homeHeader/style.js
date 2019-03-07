@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     container: {
         height: 40,
         backgroundColor: 'rgba(189, 189, 189, 0.2)',
@@ -10,5 +10,3 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
     },
 })
-
-export default styles

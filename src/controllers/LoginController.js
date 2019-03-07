@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
+import LoginView from '../views/loginView/'
 import { connect } from 'react-redux'
-import LoginLayout from '../container/loginLayout'
 import {
   ToastAndroid
 } from 'react-native'
 import { GoogleSignin, statusCodes } from 'react-native-google-signin'
-import LoginForm from '../container/loginForm'
-import { initSession } from '../../../flux/actions/loginAction'
-import { saveUserInfo } from '../../../flux/actions/userAction'
+import { initSession } from '../flux/actions/loginAction'
+import { saveUserInfo } from '../flux/actions/userAction'
 import { i18n } from 'react-native-i18n-localize'
 import firebase from 'firebase'
 
-class Login extends Component {
+class LoginController extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -98,22 +98,20 @@ class Login extends Component {
     this.setState({password: value})
   }
 
-  render() {
+  render () {
     return (
-      <LoginLayout>
-        <LoginForm
-          changeTextEmail={this.changeTextEmail}
-          changeTextPassword={this.changeTextPassword}
-          email={this.state.email}
-          password={this.state.password}
-          logIn={this.logIn}
-          signInGoogle={this.signInGoogle}
-          isSigninInProgress={this.state.isSigninInProgress}
-          moveToSignin={this.moveToSignin}
-          emailError={this.state.emailError}
-          passwordError={this.state.passwordError}
-        />
-      </LoginLayout>
+      <LoginView
+        email={this.state.email}
+        password={this.state.password}
+        emailError={this.state.emailError}
+        passwordError={this.state.passwordError}
+        moveToSignin={this.moveToSignin}
+        changeTextEmail={this.changeTextEmail}
+        changeTextPassword={this.changeTextPassword}
+        signInGoogle={this.signInGoogle}
+        isSigninInProgress={this.state.isSigninInProgress}
+        onPress={this.logIn}
+      />
     )
   }
 }
@@ -129,4 +127,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(null, mapDispatchToProps)(LoginController)

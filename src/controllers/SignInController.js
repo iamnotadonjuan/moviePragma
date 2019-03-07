@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import SignInForm from '../container/signInForm'
 import update from 'immutability-helper'
-import SignInHeader from '../container/signinHeader'
-import SignInLayout from '../container/signInLayout'
-import { saveUserInfo } from '../../../flux/actions/userAction'
-import { initSession } from '../../../flux/actions/loginAction'
+import { saveUserInfo } from '../flux/actions/userAction'
+import { initSession } from '../flux/actions/loginAction'
 import firebase from 'firebase'
 import { i18n } from 'react-native-i18n-localize'
+import SignInView from '../views/signinView'
 
-class SignIn extends Component {
+class SignInController extends Component {
 
   constructor(props) {
     super(props)
@@ -111,19 +109,17 @@ class SignIn extends Component {
 
   render() {
     return (
-      <SignInLayout>
-        <SignInHeader backButton={this.backButton} />
-        <SignInForm
-          user={this.state.user}
-          userErrors={this.state.userErrors}
-          onChangeFirstName={this.onChangeFirstName}
-          onChangeLastName={this.onChangeLastName}
-          onChangeEmail={this.onChangeEmail}
-          onChangePassword={this.onChangePassword}
-          onChangeConfirmPassword={this.onChangeConfirmPassword}
-          signIn={this.signIn}
-        />
-      </SignInLayout>
+      <SignInView
+        backButton={this.backButton}
+        user={this.state.user}
+        userErrors={this.state.userErrors}
+        onChangeFirstName={this.onChangeFirstName}
+        onChangeLastName={this.onChangeLastName}
+        onChangeEmail={this.onChangeEmail}
+        onChangePassword={this.onChangePassword}
+        onChangeConfirmPassword={this.onChangeConfirmPassword}
+        signIn={this.signIn}
+      />
     )
   }
 }
@@ -145,4 +141,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignInController)
