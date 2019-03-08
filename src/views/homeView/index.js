@@ -4,7 +4,7 @@ import HomeLayout from '../../templates/homeLayout'
 import HomeHeader from '../../components/header/homeHeader'
 import HomeTendency from './tendency'
 import HomeList from './list'
-import Menu from '../menuView/component/menu'
+import MenuController from '../../controllers/MenuController'
 import { i18n } from 'react-native-i18n-localize'
 
 export default function HomeView(props) {
@@ -18,7 +18,7 @@ export default function HomeView(props) {
   return (
     <SideMenu
       navigation={navigation}
-      menu={<Menu isOpen={isOpen} navigation={navigation} />}
+      menu={<MenuController isOpen={isOpen} navigation={navigation} />}
       isOpen={isOpen}
     >
       <HomeLayout>
