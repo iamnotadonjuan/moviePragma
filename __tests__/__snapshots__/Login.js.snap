@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Login component login renderers 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`Testing requests Init session 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "data": Object {
+        "isLogged": false,
+      },
+    },
+    "type": "init_session",
+  },
+]
+`;
