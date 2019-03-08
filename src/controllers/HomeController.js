@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { listMovie } from '../flux/actions/homeAction'
+import { closeMenu } from '../flux/actions/menuAction'
 import HomeView from '../views/homeView'
 
 class Home extends Component {
@@ -32,10 +33,9 @@ class Home extends Component {
     navigate('Detail', data)
   }
 
-  menu = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
+  menu = async () => {
+    let  isOpen = this.state.isOpen
+    await this.props._closeMenu(isOpen)
   }
 
   updateMenu(isOpen) {
@@ -58,7 +58,8 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-    listMovie: state.home.list
+    listMovie: state.home.list,
+    isOpen: state.menu.isOpen
   }
 }
 
@@ -66,6 +67,9 @@ const mapDispatchToProps = dispatch => {
   return {
     async _listMovie(data) {
       await dispatch(listMovie(data))
+    },
+    async _closeMenu(data) {
+      await dispatch(closeMenu(data))
     }
   }
 }

@@ -31,6 +31,7 @@ class Menu extends Component {
   }
 
   render() {
+    console.log('muchas')
     return (
       <MenuContainer closeMenu={this.closeMenu} logOut={this.logOut} />
     )
@@ -39,7 +40,8 @@ class Menu extends Component {
 
 const mapStateToProps = state => {
   return {
-    listMovie: state.home.list
+    listMovie: state.home.list,
+    isOpen:state.menu.isOpen
   }
 }
 

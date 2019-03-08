@@ -13,5 +13,4 @@ const _closeMenu = (data) => {
   }
 }
 
-
 export { closeMenu }

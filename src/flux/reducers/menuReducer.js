@@ -8,10 +8,9 @@ const initialState = {
   export default (state = initialState, action) => {
     switch (action.type) {
         case CLOSE_MENU:
-        console.log(action)
         return {
             ...state,
-            isOpen : action.payload.data.isOpen
+            isOpen : !action.payload.data
           }
 
         default:

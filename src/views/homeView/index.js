@@ -16,6 +16,7 @@ export default function HomeView(props) {
     getTwoList,
     detailMovie
   } = props
+  console.log(isOpen)
   return (
     <SideMenu
       navigation={navigation}
