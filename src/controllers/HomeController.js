@@ -7,9 +7,6 @@ import HomeView from '../views/homeView'
 class Home extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      isOpen: false
-    }
     this._listMovies()
   }
 
@@ -34,20 +31,15 @@ class Home extends Component {
   }
 
   menu = async () => {
-    let  isOpen = this.state.isOpen
+    let isOpen = this.props.isOpen
     await this.props._closeMenu(isOpen)
-  }
-
-  updateMenu(isOpen) {
-    this.setState({ isOpen })
   }
 
   render() {
     return (
       <HomeView
         navigation={this.props.navigation}
-        isOpen={this.state.isOpen}
-        updateMenu={this.updateMenu}
+        isOpen={this.props.isOpen}
         menu={this.menu}
         getTwoList={this.getTwoList()}
         detailMovie={this.detailMovie}

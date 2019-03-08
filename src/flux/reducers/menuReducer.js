@@ -1,6 +1,5 @@
 import { CLOSE_MENU } from "../actionTypes"
 
-
 const initialState = {
    isOpen : false
   }

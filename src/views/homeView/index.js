@@ -11,18 +11,15 @@ export default function HomeView(props) {
   const {
     navigation,
     isOpen,
-    updateMenu,
     menu,
     getTwoList,
     detailMovie
   } = props
-  console.log(isOpen)
   return (
     <SideMenu
       navigation={navigation}
       menu={<Menu isOpen={isOpen} navigation={navigation} />}
       isOpen={isOpen}
-      onChange={(isOpen) => updateMenu(isOpen)}
     >
       <HomeLayout>
         <HomeHeader navigation={navigation} menu={menu} />

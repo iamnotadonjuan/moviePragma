@@ -31,7 +31,6 @@ class Menu extends Component {
   }
 
   render() {
-    console.log('muchas')
     return (
       <MenuContainer closeMenu={this.closeMenu} logOut={this.logOut} />
     )
