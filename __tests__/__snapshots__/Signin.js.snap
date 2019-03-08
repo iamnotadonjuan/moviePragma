@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing SignIn component SignIn renderers 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`Testing requests Init session 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "data": Object {
+        "displayName": "test",
+        "email": "test@test.com",
+        "uuid": 1002,
+      },
+    },
+    "type": "save_user",
+  },
+]
+`;
