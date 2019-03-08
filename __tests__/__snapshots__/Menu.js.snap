@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Menu component Menu renderers 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`Testing requests close menu 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "data": Object {
+        "data": false,
+      },
+    },
+    "type": "close_menu",
+  },
+]
+`;
+
+exports[`Testing requests open menu 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "data": Object {
+        "data": true,
+      },
+    },
+    "type": "close_menu",
+  },
+]
+`;
