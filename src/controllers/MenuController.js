@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import MenuContainer from '../container/menuContainer'
-import { closeMenu } from '../../../flux/actions/menuAction'
+import { closeMenu } from '../flux/actions/menuAction'
 import { GoogleSignin } from 'react-native-google-signin'
-import { initSession } from '../../../flux/actions'
+import { initSession } from '../flux/actions/loginAction'
+import MenuView from '../views/menuView/'
 
 class Menu extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class Menu extends Component {
 
   render() {
     return (
-      <MenuContainer closeMenu={this.closeMenu} logOut={this.logOut} />
+      <MenuView closeMenu={this.closeMenu} logOut={this.logOut} />
     )
   }
 }
