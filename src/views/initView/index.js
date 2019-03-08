@@ -1,23 +1,19 @@
 import React from 'react'
 import {
-  View,
   Text,
-  StyleSheet,
   TouchableHighlight
 } from 'react-native'
-
-import LoaderLayout from './loader-layout'
+import InitLayout from '../../templates/initLayout'
 
 const LoaderLogin = (props) => {
   return (
-
-    <LoaderLayout>
+    <InitLayout>
       <TouchableHighlight onPress={props.pushNotification}>
         <Text>
           <Text>{props.load}</Text>
         </Text>
       </TouchableHighlight>
-    </LoaderLayout>
+    </InitLayout>
   )
 }
 export default LoaderLogin

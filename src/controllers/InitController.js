@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import LoaderLogin from '../container/loader'
-import { initSession } from '../../../flux/actions'
-import conection from '../../../services/firebase'
-import { getSession } from '../../../flux/actions/loginAction'
+import InitView from '../views/initView'
+import { initSession, getSession } from '../flux/actions/loginAction'
+import conection from '../services/firebase'
 import { I18nLocalize } from 'react-native-i18n-localize'
-import { en } from '../../../../locales/en'
-import { es } from '../../../../locales/es'
+import { en } from '../../locales/en'
+import { es } from '../../locales/en'
 
 class Init extends Component {
 
@@ -38,7 +37,7 @@ class Init extends Component {
 
   render() {
     return (
-      <LoaderLogin load={this.state.load} pushNotification={this.notification} />
+      <InitView load={this.state.load} pushNotification={this.notification} />
     )
   }
 }

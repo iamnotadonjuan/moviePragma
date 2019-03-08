@@ -1,6 +1,6 @@
 import { createSwitchNavigator, createStackNavigator, createAppContainer } from 'react-navigation'
 import LoginController from '../controllers/LoginController'
-import Init from '../views/initView/component/init'
+import InitController from '../controllers/InitController'
 import MenuController from '../controllers/MenuController'
 import DetailController from '../controllers/DetailController'
 import SignInController from '../controllers/SignInController'
@@ -27,7 +27,7 @@ const AppStack = createStackNavigator(
 
 export default createAppContainer(createSwitchNavigator(
   {
-    Init: Init,
+    Init: InitController,
     Index: IndexStack,
     App: AppStack
   },
