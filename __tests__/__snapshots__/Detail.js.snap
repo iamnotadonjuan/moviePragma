@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Menu component Menu renderers 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`Testing requests init favorite 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "data": Array [
+        Object {
+          "star_1": false,
+          "star_2": false,
+          "star_3": false,
+          "star_4": false,
+          "star_5": false,
+        },
+      ],
+    },
+    "type": "init_favorite",
+  },
+]
+`;
+
+exports[`Testing requests save rating 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "data": Array [
+        Object {
+          "star_1": false,
+          "star_2": false,
+          "star_3": false,
+          "star_4": false,
+          "star_5": false,
+        },
+      ],
+    },
+    "type": "init_favorite",
+  },
+]
+`;
