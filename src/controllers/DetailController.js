@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import { initFavorite, saveRating, openModal } from '../flux/actions/detailAction'
 import DetailView from '../views/detailView'
 
-
-
-class Detail extends Component {
+export class DetailController extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -76,4 +74,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Detail)
+export default connect(mapStateToProps, mapDispatchToProps)(DetailController)

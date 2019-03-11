@@ -1,9 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing Menu component Menu renderers 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<DetailView
+  favorite={
+    Array [
+      Object {
+        "star_1": false,
+        "star_2": false,
+        "star_3": false,
+        "star_4": false,
+        "star_5": false,
+      },
+    ]
+  }
+  isCloseModal={[Function]}
+  modalDetail={[Function]}
+  saveFavorite={[Function]}
+/>
 `;
 
 exports[`Testing requests init favorite 1`] = `
