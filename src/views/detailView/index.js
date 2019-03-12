@@ -1,7 +1,7 @@
 import React from 'react'
 import DetailLayout from '../../templates/detailLayout'
-import Body from '../detailView/body'
-import Modal from '../detailView/modal'
+import Body from '../../components/detailView/body'
+import Modal from '../../components/detailView/modal'
 
 export default function DetailView(props) {
   const {
