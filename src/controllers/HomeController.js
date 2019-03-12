@@ -4,7 +4,7 @@ import { listMovie } from '../flux/actions/homeAction'
 import { closeMenu } from '../flux/actions/menuAction'
 import HomeView from '../views/homeView'
 
-class Home extends Component {
+export class HomeController extends Component {
   constructor(props) {
     super(props)
     this._listMovies()
@@ -12,10 +12,15 @@ class Home extends Component {
 
   getTwoList() {
     const { listMovie } = this.props
-    var array = listMovie.slice(0)
-    var val = Math.floor(array.length / 2)
-    var newArray = array.splice(0, val)
-    return [array, newArray]
+    if (listMovie != undefined && listMovie.length > 0) {
+      var array = listMovie.slice(0)
+      var val = Math.floor(array.length / 2)
+      var newArray = array.splice(0, val)
+      return [array, newArray]
+    } else {
+      return []
+    }
+
   }
 
   async _listMovies() {
@@ -31,7 +36,7 @@ class Home extends Component {
   }
 
   menu = async () => {
-    let isOpen = this.props.isOpen
+    const { isOpen } = this.props
     await this.props._closeMenu(isOpen)
   }
 
@@ -66,4 +71,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeController)
