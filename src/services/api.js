@@ -1,12 +1,12 @@
 import axios from 'axios'
-const BASE_API = 'https://yts.am/api/v2/'
+import Config from 'react-native-config'
 
 class API {
-    async get(limit, quality, url) {
-        const query = await axios(`${BASE_API}${url}${limit}`)
-        const { data } = await query.data
-        return data
-    }
+  async get(limit, quality, url) {
+    const query = await axios(`${Config.API_URL}${url}${limit}`)
+    const { data } = await query.data
+    return data
+  }
 }
 
 export default new API()
