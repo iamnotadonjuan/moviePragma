@@ -1,9 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing SignIn component SignIn renderers 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<SignInView
+  backButton={[Function]}
+  onChangeConfirmPassword={[Function]}
+  onChangeEmail={[Function]}
+  onChangeFirstName={[Function]}
+  onChangeLastName={[Function]}
+  onChangePassword={[Function]}
+  signIn={[Function]}
+  user={
+    Object {
+      "confirmPassword": "",
+      "email": "",
+      "firstName": "",
+      "lastName": "",
+      "password": "",
+    }
+  }
+  userErrors={
+    Object {
+      "confirmPasswordError": "",
+      "emailError": "",
+      "firstNameError": "",
+      "lastNameError": "",
+      "passwordError": "",
+    }
+  }
+/>
 `;
 
 exports[`Testing requests Init session 1`] = `

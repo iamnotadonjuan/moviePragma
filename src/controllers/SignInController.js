@@ -7,7 +7,7 @@ import firebase from 'firebase'
 import { i18n } from 'react-native-i18n-localize'
 import SignInView from '../views/signinView'
 
-class SignInController extends Component {
+export class SignInController extends Component {
 
   constructor(props) {
     super(props)

@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import InitView from '../views/initView'
 import { initSession, getSession } from '../flux/actions/loginAction'
 import conection from '../services/firebase'
-import { I18nLocalize } from 'react-native-i18n-localize'
-import { en } from '../../locales/en'
-import { es } from '../../locales/en'
+import { initLanguage } from '../../locales/langConfig'
 
 class Init extends Component {
 
@@ -15,13 +13,12 @@ class Init extends Component {
       load: 'Loading...',
       isloader: false
     }
-    I18nLocalize.initialLanguage({ en, es })
   }
 
   async componentDidMount() {
     conection.initialize()
     await this._render()
-    I18nLocalize.setLanguage('en')
+    initLanguage()
   }
 
   async _render() {

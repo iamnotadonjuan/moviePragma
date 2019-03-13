@@ -1,21 +1,25 @@
 import React from 'react'
-import i18n from 'i18next'
-import { initReactI18next } from 'react-i18next'
 import { en } from './en'
 import { es } from './es'
+import { I18nLocalize, i18n } from 'react-native-i18n-localize'
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en,
-      es
-    },
-    lng: 'en',
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false
+export function initLanguage () {
+  try {
+    I18nLocalize.initialLanguage({ en, es })
+    I18nLocalize.setLanguage('en')
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export function translate (key) {
+  try {
+    if (key) {
+      console.log(i18n)
+      return i18n.t(key)
     }
-  })
-
-export default i18n
+    return i18n.t('translateError')
+  } catch (error) {
+    console.log(error)
+  }  
+}

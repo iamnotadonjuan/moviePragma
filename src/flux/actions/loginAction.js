@@ -14,11 +14,13 @@ export const initSession = data => {
   }
 }
 
-export const getSession = async () => {
-  try {
-    return await AsyncStorage.getItem('loggedIn')
-  } catch (error) {
-    console.log(error)
+export const getSession = () => {
+  return async () => {
+    try {
+      return await AsyncStorage.getItem('loggedIn')
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
