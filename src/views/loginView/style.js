@@ -5,9 +5,18 @@ import {
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#313131'
+  },
+  subContainer: {
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: '#313131'
+  },
+  imageContainer: {
+    flex: 0.5,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   textInput: {
     backgroundColor: '#787878',
