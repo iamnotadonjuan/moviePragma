@@ -1,0 +1,29 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'arquetipo_pragma' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for arquetipo_pragma
+  pod 'GoogleSignIn', '~> 4.4.0'
+
+  target 'arquetipo_pragmaTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'arquetipo_pragma-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for arquetipo_pragma-tvOS
+
+  target 'arquetipo_pragma-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
